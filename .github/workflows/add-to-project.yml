@@ -1,4 +1,4 @@
-name: Add issues to Projects
+name: Add issues to Projects and set Area
 
 on:
   issues:
@@ -6,6 +6,9 @@ on:
       - opened
       - reopened
       - labeled
+
+env:
+  AREA_VALUE: "Web2026"
 
 jobs:
   add-to-project-web:
@@ -18,10 +21,65 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
 
   add-to-operations:
-    name: Add to Kcumen Operations
+    name: Add to Kcumen Operations with Area
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v1.0.2
+      - name: Add to Operations Project
+        uses: actions/add-to-project@v1.0.2
         with:
           project-url: https://github.com/orgs/kcumen/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        id: add-project
+        
+      - name: Set Area field
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          script: |
+            const areaValue = process.env.AREA_VALUE;
+            const itemId = '${{ steps.add-project.outputs.itemId }}';
+            
+            // Get the Area field options
+            const { node: field } = await github.graphql(`
+              query GetAreaField($fieldId: ID!) {
+                node(id: $fieldId) {
+                  ... on ProjectV2SingleSelectField {
+                    options {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+            `, {
+              fieldId: 'PVTSSF_lADOB_fLhc4BONfQzg8-tsQ'
+            });
+            
+            // Find the option matching our area
+            const areaOption = field.options.find(opt => opt.name === areaValue);
+            
+            if (!areaOption) {
+              console.log(`Area "${areaValue}" not found in options.`);
+              return;
+            }
+            
+            // Update the field
+            await github.graphql(`
+              mutation UpdateArea($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                updateProjectV2ItemFieldValue(
+                  input: {
+                    projectId: $projectId,
+                    itemId: $itemId,
+                    fieldId: $fieldId,
+                    value: { singleSelectOptionId: $optionId }
+                  }
+                ) {
+                  projectV2Item { id }
+                }
+              }
+            `, {
+              projectId: 'PVT_kwDOB_fLhc4BONfQ',
+              itemId: itemId,
+              fieldId: 'PVTSSF_lADOB_fLhc4BONfQzg8-tsQ',
+              optionId: areaOption.id
+            });
