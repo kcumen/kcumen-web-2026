@@ -7,9 +7,18 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "@astrojs/cloudflare": "^12.6.12",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.0.0",
+    "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "vitest": "^4.0.18"
   }
 }
