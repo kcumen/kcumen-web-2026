@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 
 const projectRoot = resolve(__dirname, '../..');
@@ -104,5 +104,65 @@ describe('Package.json', () => {
 
   it('has test script', () => {
     expect(packageJson.scripts).toHaveProperty('test');
+  });
+});
+
+describe('Assets', () => {
+  it('has fonts directory', () => {
+    const fontsDir = resolve(projectRoot, 'public/fonts');
+    expect(existsSync(fontsDir)).toBe(true);
+  });
+
+  it('has images directory', () => {
+    const imagesDir = resolve(projectRoot, 'public/images');
+    expect(existsSync(imagesDir)).toBe(true);
+  });
+
+  it('has icon fonts (FontAwesome)', () => {
+    const faFont = resolve(projectRoot, 'public/fonts/fa-solid-900.ttf');
+    expect(existsSync(faFont)).toBe(true);
+  });
+
+  it('has custom icon fonts (icomoon)', () => {
+    const icomoon = resolve(projectRoot, 'public/fonts/icomoon.svg');
+    expect(existsSync(icomoon)).toBe(true);
+  });
+
+  it('has logos', () => {
+    const logo = resolve(projectRoot, 'public/images/resource/logo-1.png');
+    expect(existsSync(logo)).toBe(true);
+  });
+
+  it('has icons', () => {
+    const icon = resolve(projectRoot, 'public/images/icons/ai-chat.png');
+    expect(existsSync(icon)).toBe(true);
+  });
+
+  it('has favicon', () => {
+    const favicon = resolve(projectRoot, 'public/images/favicon-kcumen.png');
+    expect(existsSync(favicon)).toBe(true);
+  });
+
+  it('has brand logos', () => {
+    const brandLogo = resolve(projectRoot, 'public/images/brand/brand-logo-1.png');
+    expect(existsSync(brandLogo)).toBe(true);
+  });
+});
+
+describe('Layout includes assets', () => {
+  const layoutPath = resolve(projectRoot, 'src/layouts/Layout.astro');
+  const layoutContent = readFileSync(layoutPath, 'utf-8');
+
+  it('references favicon', () => {
+    expect(layoutContent).toContain('favicon-kcumen.png');
+  });
+
+  it('includes Google Fonts (Sora)', () => {
+    expect(layoutContent).toContain('fonts.googleapis.com');
+    expect(layoutContent).toContain('Sora');
+  });
+
+  it('includes Google Fonts (Inter)', () => {
+    expect(layoutContent).toContain('Inter');
   });
 });
