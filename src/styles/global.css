@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-thm-base: #bb54e1;
+  --color-thm-base-rgb: 187, 84, 255;
+  --color-thm-primary: #00CB88;
+  --color-thm-primary-rgb: 0, 203, 136;
+  --color-thm-extra: #00B67A;
+  --color-thm-extra-rgb: 0, 182, 122;
+  --color-thm-gray: #A1AAC9;
+  --color-thm-gray-rgb: 161, 170, 201;
+  --color-thm-white: #ffffff;
+  --color-thm-white-rgb: 255, 255, 255;
+  --color-thm-black: #000000;
+  --color-thm-black-rgb: 0, 0, 0;
+  --color-thm-gray-bg: #858585;
+  --color-thm-bdr-color: #3C3C77;
+  --color-thm-body-bg: #111022;
+  --color-thm-main-bg: #15152c;
+  --color-gradient-purple: #8F79FF;
+  --color-gradient-blue: #426BFF;
+
+  --gradient-thm-main: linear-gradient(211deg, #8F79FF 13.4%, #426BFF 118.74%);
+}
+
+@utility bg-thm-main {
+  background: linear-gradient(211deg, #8F79FF 13.4%, #426BFF 118.74%);
+}

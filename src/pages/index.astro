@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kcumen - Herramientas IA">
+	<main class="min-h-screen bg-thm-body-bg">
+		<div class="container mx-auto px-4 py-16">
+			<h1 class="text-6xl font-bold text-thm-white mb-4">
+				Bienvenido a <span class="text-thm-base">Kcumen</span>
+			</h1>
+			<p class="text-xl text-thm-gray mb-8">
+				Plataforma de herramientas de Inteligencia Artificial
+			</p>
+			<div class="flex gap-4">
+				<button class="px-6 py-3 bg-thm-main text-thm-white rounded-lg font-semibold">
+					Comenzar
+				</button>
+				<button class="px-6 py-3 border border-thm-bdr-color text-thm-white rounded-lg font-semibold hover:bg-thm-base transition-colors">
+					Más información
+				</button>
+			</div>
+			<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="p-6 bg-thm-main-bg rounded-lg border border-thm-bdr-color">
+					<h3 class="text-2xl text-thm-white mb-2">Color primario</h3>
+					<p class="text-thm-base">#bb54e1 - thm-base</p>
+				</div>
+				<div class="p-6 bg-thm-main-bg rounded-lg border border-thm-bdr-color">
+					<h3 class="text-2xl text-thm-white mb-2">Verde principal</h3>
+					<p class="text-thm-primary">#00CB88 - thm-primary</p>
+				</div>
+				<div class="p-6 bg-thm-main-bg rounded-lg border border-thm-bdr-color">
+					<h3 class="text-2xl text-thm-white mb-2">Gradiente púrpura</h3>
+					<p class="text-gradient-purple">#8F79FF - gradient-purple</p>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

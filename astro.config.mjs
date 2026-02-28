@@ -1,16 +1,20 @@
 import { defineConfig } from 'astro/config';
 
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineConfig({
   output: 'static',
+
   build: {
     format: 'file'
   },
+
   server: {
     port: 4321,
     host: true
   },
-  base: '/',
-  redirects: {
-    '/': '/index.html'
+
+  vite: {
+    plugins: [tailwindcss()]
   }
 });
