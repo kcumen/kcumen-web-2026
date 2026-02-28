@@ -1,0 +1,6 @@
+name = "2026-kcumen-co"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Pages configuration
+[env.production]
+name = "2026-kcumen-co"
