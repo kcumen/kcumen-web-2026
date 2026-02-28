@@ -84,6 +84,11 @@ describe('Astro Config', () => {
     expect(astroConfig).toContain("@tailwindcss/vite");
     expect(astroConfig).toContain('tailwindcss()');
   });
+
+  it('includes Cloudflare adapter', () => {
+    expect(astroConfig).toContain('@astrojs/cloudflare');
+    expect(astroConfig).toContain('adapter: cloudflare');
+  });
 });
 
 describe('Package.json', () => {

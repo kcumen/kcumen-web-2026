@@ -12,6 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.0.0",
     "tailwindcss": "^4.2.1"
