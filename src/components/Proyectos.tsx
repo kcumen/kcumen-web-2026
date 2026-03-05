@@ -18,83 +18,82 @@ interface Proyecto {
 
 const proyectos: Proyecto[] = [
   {
-    titulo: "E-commerce Platform",
-    categoria: "Desarrollo Web",
-    tech: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
-    descripcion: "Plataforma de comercio electrónico completa con pasarela de pagos, inventario y panel de administración. Desarrollamos una solución escalable que permite gestionar productos, pedidos y clientes de manera eficiente.",
-    cliente: "RetailCorp",
-    anio: "2024",
+    titulo: "Certiagro",
+    categoria: "Producto Propio",
+    tech: ["Nube", "UI/UX", "Android", "Gamificación"],
+    descripcion: "Aplicativo para el sector agrícola que integra software en la nube, diseño UI/UX, aplicaciones móviles y gamificación. Es uno de nuestros productos insignia, conçuido para guiar a productores agrícolas en la implementación de buenas prácticas y asistencia técnica remota para certificación de predios.",
+    cliente: "Mintic",
+    anio: "2018",
     resultados: [
-      "Incremento del 150% en conversiones",
-      "Reducción del 40% en tiempo de carga",
-      "Integración con múltiples métodos de pago"
+      "Producto propio desarrollado desde cero",
+      "Sector agrícola transformado digitalmente",
+      "Disponible en Google Play"
     ],
     caracteristicas: [
-      "Carrito de compras persistentes",
-      "Panel de administración completo",
-      "Sistema de notificaciones en tiempo real",
-      "Optimización SEO avanzada",
-      "Diseño responsive para todos los dispositivos"
+      "Diseño de interfaces",
+      "Desarrollo nativo Android",
+      "Sistema de Gamificación",
+      "Diseño de Experiencia de Usuario",
+      "Software en la nube"
     ]
   },
   {
-    titulo: "SaaS Dashboard",
-    categoria: "SaaS Product",
-    tech: ["React", "Node.js", "PostgreSQL", "Chart.js"],
-    descripcion: "Dashboard analítico en tiempo real con visualización de datos y reportes automatizados. Creamos una plataforma intuitiva que permite a las empresas monitorear sus métricas clave.",
-    cliente: "DataMetrics Inc",
-    anio: "2024",
+    titulo: "TrazAgro",
+    categoria: "Plataforma",
+    tech: ["Nube", "Móvil", "QR", "Trazabilidad"],
+    descripcion: "Sistema software para gestionar la trazabilidad de productos agrícolas. Integra plataforma en la nube con varias aplicaciones móviles para gestionar información de productores y evaluación de productos mediante códigos QR. Producto comercializable mediante licenciamiento.",
+    cliente: "Privado",
+    anio: "2017",
     resultados: [
-      "Más de 10,000 usuarios activos",
-      "Tiempo de respuesta < 100ms",
-      "99.9% de disponibilidad"
+      "Trazabilidad completa del producto",
+      "Gestión de múltiples tipos de usuarios",
+      "Escalable para diferentes cultivos"
     ],
     caracteristicas: [
-      "Gráficos interactivos en tiempo real",
-      "Exportación de reportes en PDF/Excel",
-      "Alertas configurables por email",
-      "Panel multi-tenant",
-      "API RESTful para integraciones"
+      "Diseño de interfaces web y móvil",
+      "Sistema de Gamificación",
+      "Desarrollo en la nube",
+      "Desarrollo nativo Android",
+      "Códigos QR"
     ]
   },
   {
-    titulo: "Mobile Banking App",
-    categoria: "Apps Mobile",
-    tech: ["Flutter", "Firebase", "AWS", "Biometrics"],
-    descripcion: "Aplicación bancaria móvil con transferencias, pagos y gestión de cuentas. Implementamos medidas de seguridad avanzadas para proteger los datos financieros de los usuarios.",
-    cliente: "FinanceBank",
-    anio: "2023",
+    titulo: "Tángara",
+    categoria: "Plataforma Web y Móvil",
+    tech: ["Nube", "Gráficos", "Datos", "Android"],
+    descripcion: "Aplicativo en la nube para unificar indicadores de información en diferentes áreas temáticas. Permite visualizar mediante gráficos y tablas resultados comparativos. Escalable y proveído bajo licenciamiento.",
+    cliente: "Gobernación del Cauca",
+    anio: "2018",
     resultados: [
-      "Más de 500,000 descargas",
-      "Calificación 4.8 en App Store",
-      "0 incidentes de seguridad"
+      "Unificación de indicadores",
+      "Visualización comparativa de datos",
+      "Escalable a múltiples sectores"
     ],
     caracteristicas: [
-      "Autenticación biométrica",
-      "Transferencias instantáneas",
-      "Historial de transacciones",
-      "Gestión de tarjetas virtuales",
-      "Soporte para múltiples monedas"
+      "Diseño de interfaces web y móvil",
+      "Diseño de Experiencia de Usuario",
+      "Desarrollo en la nube",
+      "Desarrollo nativo Android",
+      "Gráficos y tablas dinámicas"
     ]
   },
   {
-    titulo: "AI Content Generator",
-    categoria: "Solutions IA",
-    tech: ["Python", "OpenAI", "FastAPI", "React"],
-    descripcion: "Plataforma de generación de contenido con IA para marketing y redes sociales. Utilizamos modelos de lenguaje avanzados para crear contenido optimizado y atractivo.",
-    cliente: "MarketingPro",
-    anio: "2024",
+    titulo: "Intel Gamification",
+    categoria: "Sistema de Gamificación",
+    tech: ["Web", "Nube", "Gamificación", "Intel"],
+    descripcion: "Sistema software para evaluación mediante estrategia de gamificación para Intel Corporation. Desarrollado en colaboración con agencias internacionales, permite mantener control de temas tratados por personal de capacitación.",
+    cliente: "Intel",
+    anio: "2012",
     resultados: [
-      "Generación de +50,000 contenidos mensuales",
-      "Ahorro del 70% en tiempo de creación",
-      "Mejora del 45% en engagement"
+      "Evaluación gamificada de capacitación",
+      "Colaboración con Intel Corporation",
+      "Control de temas tratados"
     ],
     caracteristicas: [
-      "Generación de posts para redes sociales",
-      "Creación de artículos de blog",
-      "Generación de descripciones de productos",
-      "Optimización de SEO",
-      "Personalización por tono y audiencia"
+      "Diseño de interfaces web y móvil",
+      "Sistema de Gamificación",
+      "Desarrollo en la nube",
+      "Estrategia de evaluación"
     ]
   },
 ];
