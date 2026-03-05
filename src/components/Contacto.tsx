@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin, Send, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -10,10 +11,29 @@ export default function Contacto() {
     empresa: "",
     mensaje: "",
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setStatus("loading");
+    setErrorMessage("");
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("nombre", formData.nombre);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("empresa", formData.empresa);
+    formDataToSend.append("mensaje", formData.mensaje);
+
+    const result = await sendEmail(formDataToSend);
+
+    if (result.success) {
+      setStatus("success");
+      setFormData({ nombre: "", email: "", empresa: "", mensaje: "" });
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error || "Error al enviar el mensaje");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -171,12 +191,34 @@ export default function Contacto() {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] text-white font-semibold rounded-lg hover:shadow-neon transition-all duration-200 cursor-pointer breathe-glow"
+                disabled={status === "loading"}
+                className="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] text-white font-semibold rounded-lg hover:shadow-neon transition-all duration-200 cursor-pointer breathe-glow disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Sparkles className="mr-2 w-5 h-5" />
-                Enviar Mensaje
-                <Send className="ml-2 w-5 h-5" />
+                {status === "loading" ? (
+                  <>
+                    <span className="mr-2">Enviando...</span>
+                  </>
+                ) : status === "success" ? (
+                  <>
+                    <Sparkles className="mr-2 w-5 h-5" />
+                    ¡Enviado!
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="mr-2 w-5 h-5" />
+                    Enviar Mensaje
+                    <Send className="ml-2 w-5 h-5" />
+                  </>
+                )}
               </button>
+
+              {status === "success" && (
+                <p className="text-green-400 text-center">¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.</p>
+              )}
+
+              {status === "error" && (
+                <p className="text-red-400 text-center">{errorMessage}</p>
+              )}
             </form>
           </div>
         </div>
