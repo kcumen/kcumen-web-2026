@@ -58,23 +58,23 @@ const proyectos: Proyecto[] = [
     ]
   },
   {
-    titulo: "Tángara",
-    categoria: "Plataforma Web y Móvil",
-    tech: ["Nube", "Gráficos", "Datos", "Android"],
-    descripcion: "Aplicativo en la nube para unificar indicadores de información en diferentes áreas temáticas. Permite visualizar mediante gráficos y tablas resultados comparativos. Escalable y proveído bajo licenciamiento.",
-    cliente: "Gobernación del Cauca",
-    anio: "2018",
+    titulo: "Botty Finanzas",
+    categoria: "Producto Propio",
+    tech: ["WhatsApp", "IA", "Google Sheets", "Nube"],
+    descripcion: "Asistente financiero inteligente que gestiona finanzas personales y empresariales a través de WhatsApp. Registra transacciones, genera reportes automáticos y sincroniza con Google Sheets. Producto propio de Kcumen disponible para usuarios.",
+    cliente: "Kcumen",
+    anio: "2025",
     resultados: [
-      "Unificación de indicadores",
-      "Visualización comparativa de datos",
-      "Escalable a múltiples sectores"
+      "Gestión financiera por WhatsApp",
+      "Reportes automáticos",
+      "Sincronización con Google Sheets"
     ],
     caracteristicas: [
-      "Diseño de interfaces web y móvil",
-      "Diseño de Experiencia de Usuario",
-      "Desarrollo en la nube",
-      "Desarrollo nativo Android",
-      "Gráficos y tablas dinámicas"
+      "Asistente de IA para finanzas",
+      "Registro de transacciones por voz y texto",
+      "Reportes y gráficos financieros",
+      "Integración con Google Sheets",
+      "Gratis para empezar"
     ]
   },
   {
