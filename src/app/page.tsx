@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Servicios from "@/components/Servicios";
+import Soluciones from "@/components/Soluciones";
 import PorQueElegirnos from "@/components/PorQueElegirnos";
 import Proyectos from "@/components/Proyectos";
 import Testimonios from "@/components/Testimonios";
@@ -20,7 +20,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      <Servicios />
+      <Soluciones />
       <PorQueElegirnos />
       <Proyectos />
       <Testimonios />
