@@ -9,10 +9,10 @@ const soluciones = [
     descripcion: "Automatización inteligente y modelos predictivos avanzados para optimizar procesos y tomar decisiones basadas en datos.",
     icon: Brain,
     caracteristicas: [
-      "Machine Learning",
-      "Procesamiento de Lenguaje Natural",
-      "Modelos predictivos",
-      "Automatización inteligente",
+      "Automatización de tareas",
+      "Análisis predictivo",
+      "Chatbots inteligentes",
+      "Asistentes virtuales",
     ],
   },
   {
@@ -20,10 +20,10 @@ const soluciones = [
     descripcion: "Plataformas y sistemas empresariales personalizados que se adaptan perfectamente a las necesidades de tu organización.",
     icon: Code,
     caracteristicas: [
-      "Desarrollo full-stack",
-      "APIs y integraciones",
-      "Sistemas ERP/CRM",
-      "Arquitectura escalable",
+      "Desarrollo personalizado",
+      "Integraciones flexibles",
+      "Gestión empresarial",
+      "Crecimiento sin límites",
     ],
   },
   {
@@ -34,7 +34,7 @@ const soluciones = [
       "Sector público",
       "Cooperación internacional",
       "Cumplimiento normativo",
-      "Seguridad avanzada",
+      "Escalabilidad garantizada",
     ],
   },
   {
@@ -42,10 +42,10 @@ const soluciones = [
     descripcion: "Desarrollo de SaaS y herramientas especializadas diseñadas para resolver problemas específicos del mercado.",
     icon: Package,
     caracteristicas: [
-      "SaaS multiplataforma",
-      "Herramientas especializadas",
+      "Herramientas en la nube",
+      "Soluciones especializadas",
       "Propiedad intelectual",
-      "Escalabilidad garantizada",
+      "Crecimiento escalable",
     ],
   },
   {
@@ -64,10 +64,10 @@ const soluciones = [
     descripcion: "Modernización de infraestructura y procesos para adoptar tecnologías emergentes y mantener la competitividad.",
     icon: Zap,
     caracteristicas: [
-      "Migración a la nube",
-      "Modernización de legacy",
-      "DevOps y CI/CD",
-      "Seguridad informática",
+      "Innovación tecnológica",
+      "Modernización de sistemas",
+      "Entrega continua",
+      "Tecnología de vanguardia",
     ],
   },
 ];
