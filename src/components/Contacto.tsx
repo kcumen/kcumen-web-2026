@@ -79,18 +79,6 @@ export default function Contacto() {
                   </a>
                 </div>
               </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#7C3AED] to-[#A78BFA] rounded-lg flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-medium text-white">Ubicación</p>
-                  <p className="text-[#94A3B8]">
-                    Ciudad de México, México
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Decorative Box */}
@@ -98,10 +86,10 @@ export default function Contacto() {
               <p className="text-lg font-semibold text-white mb-2">
                 ¿Por qué trabajar con nosotros?
               </p>
+              <p className="text-[#94A3B8] mb-4">
+                +12 años de experiencia
+              </p>
               <ul className="space-y-2 text-[#94A3B8]">
-                <li className="flex items-center gap-2">
-                  <span className="text-[#A78BFA]">✓</span> +5 años de experiencia
-                </li>
                 <li className="flex items-center gap-2">
                   <span className="text-[#A78BFA]">✓</span> Equipo multidisciplinario
                 </li>

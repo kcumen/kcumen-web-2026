@@ -61,10 +61,6 @@ export default function Footer() {
                   +1 (234) 567-890
                 </a>
               </div>
-              <div className="flex items-center gap-3 text-[#94A3B8]">
-                <MapPin className="w-5 h-5" />
-                <span>Ciudad de México, México</span>
-              </div>
             </div>
           </div>
 
@@ -123,23 +119,18 @@ export default function Footer() {
         {/* Social Links & Copyright */}
         <div className="border-t border-[#7C3AED]/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-3">
+              <img 
+                src="/favicon-kcumen.png" 
+                alt="Kcumen" 
+                className="w-8 h-8"
+              />
+              <span className="text-lg font-bold text-white">Kcumen</span>
+              <span className="text-lg font-light text-[#94A3B8]">Expertos Digitales</span>
+            </div>
             <p className="text-[#64748B] text-sm">
               © 2026 Kcumen. Todos los derechos reservados.
             </p>
-            
-            {/* Social Icons */}
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 bg-[#7C3AED]/20 rounded-lg flex items-center justify-center hover:bg-[#7C3AED] transition-colors cursor-pointer"
-                >
-                  <social.icon className="w-5 h-5 text-[#A78BFA] hover:text-white" />
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>
