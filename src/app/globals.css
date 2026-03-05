@@ -1,0 +1,261 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;700&display=swap');
+
+@import "tailwindcss";
+
+/* Kcumen Design System Variables - Dark AI Theme */
+:root {
+  /* Colors */
+  --color-primary: #7C3AED;
+  --color-secondary: #A78BFA;
+  --color-cta: #F43F5E;
+  --color-background: #0F0F23;
+  --color-surface: #1A1A2E;
+  --color-surface-hover: #252542;
+  --color-text: #E2E8F0;
+  --color-text-muted: #94A3B8;
+  --color-white: #FFFFFF;
+  
+  /* Neon Effects */
+  --neon-purple: #A855F7;
+  --neon-pink: #EC4899;
+  --neon-cyan: #22D3EE;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.6);
+  --shadow-neon: 0 0 15px rgba(168, 85, 247, 0.4);
+  --shadow-neon-pink: 0 0 15px rgba(244, 63, 94, 0.4);
+  
+  /* Typography */
+  --font-heading: 'Exo', sans-serif;
+  --font-body: 'Exo', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-cta: var(--color-cta);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-white: var(--color-white);
+  
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* Base styles */
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  background-image: 
+    radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Light/Dark Mode Contrast */
+
+/* Neon text effect - use sparingly for readability */
+.neon-text {
+  text-shadow: 0 0 8px var(--neon-purple);
+}
+
+.neon-text-pink {
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* Breathing neon text */
+@keyframes breathe-neon {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+    opacity: 0.95;
+  }
+  50% {
+    text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+    opacity: 1;
+  }
+}
+
+.breathe-neon {
+  animation: breathe-neon 4s ease-in-out infinite;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(26, 26, 46, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: var(--shadow-neon);
+}
+
+/* Gradient border effect */
+.gradient-border {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animated background gradient */
+.animated-gradient {
+  background: linear-gradient(-45deg, #0F0F23, #1A1A2E, #2D1B4E, #0F0F23);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow animation */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 60px rgba(244, 63, 94, 0.4); }
+}
+
+.glow-animation {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Breathing glow animation - subtle */
+@keyframes breathe {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4),
+                0 0 30px rgba(168, 85, 247, 0.2),
+                0 0 45px rgba(168, 85, 247, 0.1);
+    opacity: 0.9;
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6),
+                0 0 50px rgba(168, 85, 247, 0.3),
+                0 0 75px rgba(168, 85, 247, 0.15);
+    opacity: 1;
+  }
+}
+
+.breathe-glow {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Breathing glow pink variant */
+@keyframes breathe-pink {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.4),
+                0 0 30px rgba(244, 63, 94, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(244, 63, 94, 0.6),
+                0 0 50px rgba(244, 63, 94, 0.3);
+  }
+}
+
+.breathe-glow-pink {
+  animation: breathe-pink 4s ease-in-out infinite;
+}
+
+/* Hover glow effect - appears on hover */
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5),
+              0 0 20px rgba(168, 85, 247, 0.3);
+}
