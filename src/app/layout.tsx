@@ -5,7 +5,7 @@ import CookieConsent from "@/components/CookieConsent";
 export const metadata: Metadata = {
   metadataBase: new URL("https://kcumen.co"),
   title: {
-    default: "Kcumen | Desarrollo web, software a medida e inteligencia artificial",
+    default: "Kcumen | Desarrollo Web, Software a Medida e Inteligencia Artificial",
     template: "%s | Kcumen",
   },
   description:
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
       "Creamos plataformas digitales, productos tecnológicos y soluciones con IA para impulsar el crecimiento de empresas e instituciones.",
     images: [
       {
-        url: "/favicon-kcumen.png",
-        width: 512,
-        height: 512,
+        url: "/kcumen_social.png",
+        width: 1200,
+        height: 630,
         alt: "Kcumen - Desarrollo web, software e inteligencia artificial",
       },
     ],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Kcumen | Desarrollo web, software a medida e inteligencia artificial",
     description:
       "Plataformas digitales, software a medida, apps y soluciones con IA para acelerar la transformación digital.",
-    images: ["/favicon-kcumen.png"],
+    images: ["/kcumen_social.png"],
   },
   robots: {
     index: true,
