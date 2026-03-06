@@ -94,9 +94,9 @@ export default function CookieConsent() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-2 inset-x-2 z-50 md:left-auto md:right-6 md:max-w-md md:inset-x-auto md:bottom-4">
+    <div className="fixed bottom-2 inset-x-2 z-[9999] pointer-events-none md:left-auto md:right-6 md:max-w-md md:inset-x-auto md:bottom-4">
       <div
-        className="glass-card rounded-xl shadow-lg border border-[#7C3AED]/20 overflow-hidden"
+        className="glass-card pointer-events-auto rounded-xl shadow-lg border border-[#7C3AED]/20 overflow-hidden"
         role="dialog"
         aria-modal="false"
         aria-labelledby="cookie-consent-title"
@@ -127,18 +127,9 @@ export default function CookieConsent() {
         </div>
 
         {/* Expanded content - GDPR information */}
-        <div id="cookie-consent-details" className={`transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div id="cookie-consent-details" className={`transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[32rem] opacity-100 pointer-events-auto' : 'max-h-0 opacity-0 pointer-events-none'}`}>
           <div className="px-4 pb-4 border-t border-[#7C3AED]/20">
             <div className="pt-3 space-y-3">
-              <p className="text-[#E2E8F0] text-xs">
-                <strong>¿Qué son las cookies?</strong> Son pequeños archivos que se almacenan en tu dispositivo para mejorar tu experiencia de navegación.
-              </p>
-              <p className="text-[#E2E8F0] text-xs">
-                <strong>Cookies esenciales:</strong> Necesarias para el funcionamiento básico del sitio. No pueden desactivarse.
-              </p>
-              <p className="text-[#E2E8F0] text-xs">
-                <strong>Cookies analíticas:</strong> Solo se activarán si das tu consentimiento. Nos ayudan a entender cómo usas nuestro sitio para mejorarlo.
-              </p>
               <div className="rounded-lg border border-[#7C3AED]/20 bg-[#7C3AED]/5 p-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -150,16 +141,25 @@ export default function CookieConsent() {
                   <button
                     type="button"
                     onClick={() => setAnalyticsEnabled((current) => !current)}
-                    aria-pressed={analyticsEnabled}
-                    className={`relative inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition-colors ${analyticsEnabled ? "bg-[#7C3AED]" : "bg-[#334155]"}`}
+                    className={`relative z-10 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer items-center rounded-full transition-colors ${analyticsEnabled ? "bg-[#7C3AED]" : "bg-[#334155]"}`}
+                    {...(analyticsEnabled ? { "aria-pressed": "true" } : { "aria-pressed": "false" })}
                   >
                     <span className="sr-only">Activar cookies analíticas</span>
                     <span
-                      className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${analyticsEnabled ? "translate-x-6" : "translate-x-1"}`}
+                      className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${analyticsEnabled ? "translate-x-6" : "translate-x-1"}`}
                     />
                   </button>
                 </div>
               </div>
+              <p className="text-[#E2E8F0] text-xs">
+                <strong>¿Qué son las cookies?</strong> Son pequeños archivos que se almacenan en tu dispositivo para mejorar tu experiencia de navegación.
+              </p>
+              <p className="text-[#E2E8F0] text-xs">
+                <strong>Cookies esenciales:</strong> Necesarias para el funcionamiento básico del sitio. No pueden desactivarse.
+              </p>
+              <p className="text-[#E2E8F0] text-xs">
+                <strong>Cookies analíticas:</strong> Solo se activarán si das tu consentimiento. Nos ayudan a entender cómo usas nuestro sitio para mejorarlo.
+              </p>
               <p className="text-[#64748B] text-xs">
                 Puedes cambiar tu decisión más adelante y tienes derecho a acceder, rectificar o eliminar tus datos. Consulta nuestra política de cookies y privacidad para más información.
               </p>
