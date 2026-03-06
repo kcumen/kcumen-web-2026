@@ -39,6 +39,7 @@ export default function Hero() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-[#94A3B8] mb-8 max-w-2xl mx-auto leading-relaxed">
+            Transformamos tu visión en realidad digital con tecnología de vanguardia.
             Potencia con IA el futuro de tu negocio hoy.
           </p>
 
