@@ -69,6 +69,7 @@ body {
     radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,6 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Smooth scroll for anchor links */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

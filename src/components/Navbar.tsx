@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-auto right-auto z-50 glass-card rounded-xl shadow-lg hover-glow overflow-hidden w-full max-w-[calc(100vw-2rem)] mx-auto">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 glass-card rounded-xl shadow-lg hover-glow overflow-hidden w-full max-w-[calc(100vw-2rem)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
