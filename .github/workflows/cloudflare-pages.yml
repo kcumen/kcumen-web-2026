@@ -29,13 +29,11 @@ jobs:
         run: npm ci
 
       - name: Build for Cloudflare
-        run: npm run build
+        run: npm run build:cf
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: kcumen-web-2026
-          outputDirectory: .next
-          # For Next.js on Cloudflare, this creates a Worker
+          command: deploy
