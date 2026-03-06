@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kcumen.co"),
@@ -78,6 +79,7 @@ export default function RootLayout({
     <html lang="es">
       <body className="antialiased">
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
