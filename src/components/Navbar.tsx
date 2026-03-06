@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Menu, X, Cpu } from "lucide-react";
 
 const navLinks = [
+  { name: "Inicio", href: "#" },
   { name: "Soluciones", href: "#servicios" },
   { name: "Nosotros", href: "#nosotros" },
   { name: "Proyectos", href: "#proyectos" },
-  { name: "Contacto", href: "#contacto" },
 ];
 
 export default function Navbar() {
@@ -46,7 +46,7 @@ export default function Navbar() {
               href="#contacto"
               className="px-4 py-2 bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] text-white font-medium rounded-lg hover:shadow-neon transition-all duration-200 cursor-pointer"
             >
-              Login
+              Contacto
             </a>
           </div>
 

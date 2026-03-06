@@ -18,6 +18,26 @@ interface Proyecto {
 
 const proyectos: Proyecto[] = [
   {
+    titulo: "Botty Finanzas",
+    categoria: "Producto Propio",
+    tech: ["WhatsApp", "IA", "Google Sheets", "Nube"],
+    descripcion: "Asistente financiero inteligente que gestiona finanzas personales y empresariales a través de WhatsApp. Registra transacciones, genera reportes automáticos y sincroniza con Google Sheets. Producto propio de Kcumen disponible para usuarios.",
+    cliente: "Kcumen",
+    anio: "2025",
+    resultados: [
+      "Gestión financiera por WhatsApp",
+      "Reportes automáticos",
+      "Sincronización con Google Sheets"
+    ],
+    caracteristicas: [
+      "Asistente de IA para finanzas",
+      "Registro de transacciones por voz y texto",
+      "Reportes y gráficos financieros",
+      "Integración con Google Sheets",
+      "Gratis para empezar"
+    ]
+  },
+  {
     titulo: "Certiagro",
     categoria: "Producto Propio",
     tech: ["Nube", "UI/UX", "Android", "Gamificación"],
@@ -55,26 +75,6 @@ const proyectos: Proyecto[] = [
       "Desarrollo en la nube",
       "Desarrollo nativo Android",
       "Códigos QR"
-    ]
-  },
-  {
-    titulo: "Botty Finanzas",
-    categoria: "Producto Propio",
-    tech: ["WhatsApp", "IA", "Google Sheets", "Nube"],
-    descripcion: "Asistente financiero inteligente que gestiona finanzas personales y empresariales a través de WhatsApp. Registra transacciones, genera reportes automáticos y sincroniza con Google Sheets. Producto propio de Kcumen disponible para usuarios.",
-    cliente: "Kcumen",
-    anio: "2025",
-    resultados: [
-      "Gestión financiera por WhatsApp",
-      "Reportes automáticos",
-      "Sincronización con Google Sheets"
-    ],
-    caracteristicas: [
-      "Asistente de IA para finanzas",
-      "Registro de transacciones por voz y texto",
-      "Reportes y gráficos financieros",
-      "Integración con Google Sheets",
-      "Gratis para empezar"
     ]
   },
   {

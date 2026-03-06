@@ -4,16 +4,16 @@ import { Quote, Building2, Landmark, Cpu, Globe, Leaf, Handshake, FlaskConical, 
 
 const testimonios = [
   {
-    nombre: "Juan Pérez",
-    cargo: "CEO, Empresa XYZ",
-    empresa: "XYZ Corp",
-    texto: "Kcumen transformó nuestra visión en una plataforma que superó nuestras expectativas. El equipo demostró profesionalismo y expertise técnico excepcional.",
+    nombre: "Margarita Santos",
+    cargo: "Coordinadora, FAO Regional",
+    empresa: "FAO Colombia",
+    texto: "Kcumen transformó nuestra visión en una plataforma que superó nuestras expectativas. Tiene un gran equipo, muy profesional y con un conocimiento técnico excepcional.",
   },
   {
-    nombre: "María García",
-    cargo: "CTO, StartupTech",
-    empresa: "StartupTech",
-    texto: "Excelente trabajo. Entregaron en tiempo récord con una calidad de código outstanding. Repetiría sin duda.",
+    nombre: "César Echeverry",
+    cargo: "CEO",
+    empresa: "Tecnicafé",
+    texto: "Superaron nuestras expectativas. Lograron crear una plataforma inmersiva que conectó cientos de personas de todo el mundo. Los recomiendo sin duda.",
   },
 ];
 

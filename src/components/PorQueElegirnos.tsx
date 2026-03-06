@@ -1,6 +1,6 @@
 "use client";
 
-import { Zap, Shield, Target, Gem } from "lucide-react";
+import { Zap, Shield, Target, Gem, Handshake, Rocket } from "lucide-react";
 
 const diferenciadores = [
   {
@@ -9,9 +9,9 @@ const diferenciadores = [
     description: "Entregas en tiempo récord sin comprometer calidad. Metodologías ágiles para resultados rápidos.",
   },
   {
-    icon: Shield,
-    title: "Seguro",
-    description: "Estándares de seguridad enterprise. Protegemos tus datos y los de tus clientes.",
+    icon: Rocket,
+    title: "Estratégico",
+    description: "Entendemos en profundidad el mundo digital, Contarás siempre con el mejor acompañamiento.",
   },
   {
     icon: Target,
@@ -19,9 +19,9 @@ const diferenciadores = [
     description: "100% centrado en tus objetivos de negocio. Entendemos tus metas y las hacemos realidad.",
   },
   {
-    icon: Gem,
-    title: "Calidad",
-    description: "Código limpio, mantenible y escalable. Best practices y patrones de diseño modernos.",
+    icon: Handshake,
+    title: "Cercano",
+    description: "Entendemos tus retos. Estaremos para apoyarte a seguir creciendo.",
   },
 ];
 
