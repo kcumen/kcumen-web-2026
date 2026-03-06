@@ -1,6 +1,6 @@
 "use client";
 
-import { Quote } from "lucide-react";
+import { Quote, Building2, Landmark, Cpu, Globe, Leaf, Handshake, FlaskConical, GraduationCap, ShoppingBag } from "lucide-react";
 
 const testimonios = [
   {
@@ -17,7 +17,24 @@ const testimonios = [
   },
 ];
 
-const clientes = ["Google", "Microsoft", "Amazon", "Meta", "Apple"];
+// ─── Real client / partner logos (icon + name in white) ──────────────────────
+const LOGO_BRANDS = [
+  { name: 'Zasca Cauca', icon: <Building2 className="h-5 w-5 text-white" /> },
+  { name: 'Cámara de Comercio del Cauca', icon: <Landmark className="h-5 w-5 text-white" /> },
+  { name: 'Cámara de Comercio de Bogotá', icon: <Landmark className="h-5 w-5 text-white" /> },
+  { name: 'Intel', icon: <Cpu className="h-5 w-5 text-white" /> },
+  { name: 'Programa de las Naciones Unidas', icon: <Globe className="h-5 w-5 text-white" /> },
+  { name: 'Tecnicafé', icon: <Leaf className="h-5 w-5 text-white" /> },
+  { name: 'USAID', icon: <Handshake className="h-5 w-5 text-white" /> },
+  { name: 'Naciones Unidas Colombia', icon: <Globe className="h-5 w-5 text-white" /> },
+  { name: 'MinTIC Colombia', icon: <Cpu className="h-5 w-5 text-white" /> },
+  { name: 'MinCiencias', icon: <FlaskConical className="h-5 w-5 text-white" /> },
+  { name: 'SENA', icon: <GraduationCap className="h-5 w-5 text-white" /> },
+  { name: 'UNAD', icon: <GraduationCap className="h-5 w-5 text-white" /> },
+  { name: 'MinAgricultura', icon: <Leaf className="h-5 w-5 text-white" /> },
+  { name: 'Federación de Cafeteros de Colombia', icon: <ShoppingBag className="h-5 w-5 text-white" /> },
+  { name: 'FAO', icon: <Globe className="h-5 w-5 text-white" /> },
+];
 
 export default function Testimonios() {
   return (
@@ -45,7 +62,7 @@ export default function Testimonios() {
             >
               <Quote className="w-10 h-10 text-[#F43F5E] mb-4" />
               <p className="text-[#E2E8F0] text-lg leading-relaxed mb-6">
-                "{testimonio.texto}"
+                &ldquo;{testimonio.texto}&rdquo;
               </p>
               <div className="border-t border-[#7C3AED]/20 pt-4">
                 <p className="font-semibold text-white">
@@ -59,19 +76,22 @@ export default function Testimonios() {
           ))}
         </div>
 
-        {/* Client Logos */}
+        {/* Client Logos with Icons */}
         <div className="text-center">
           <p className="text-[#94A3B8] mb-6">Empresas que confían en nosotros</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {clientes.map((cliente, index) => (
-              <div
-                key={index}
-                className="text-2xl font-bold text-[#7C3AED]/50 hover:text-[#A78BFA] transition-colors cursor-pointer"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {cliente}
-              </div>
-            ))}
+          <div className="relative overflow-hidden py-4 marquee-fade">
+            <div className="whitespace-nowrap animate-marquee-right">
+              {[...LOGO_BRANDS, ...LOGO_BRANDS].map((brand, index) => (
+                <span
+                  key={`${brand.name}-${index}`}
+                  className="inline-flex items-center gap-2 mx-6 md:mx-8 text-base md:text-lg font-medium text-white/70 hover:text-white transition-colors"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {brand.icon}
+                  <span>{brand.name}</span>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
