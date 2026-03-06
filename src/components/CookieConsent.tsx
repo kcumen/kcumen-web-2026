@@ -1,21 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Cookie } from "lucide-react";
+import { Cookie, Info, X, ChevronUp, ChevronDown } from "lucide-react";
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const hasChecked = useRef(false);
 
   useEffect(() => {
     if (hasChecked.current) return;
     hasChecked.current = true;
     
-    // Check if user has already made a choice
     const consent = localStorage.getItem("cookie_consent");
     if (consent === null) {
-      // Show banner if no consent has been given
-      // Use setTimeout to defer the state update and avoid the lint warning
       setTimeout(() => setIsVisible(true), 0);
     }
   }, []);
@@ -30,46 +28,72 @@ export default function CookieConsent() {
     setIsVisible(false);
   };
 
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:max-w-md">
-      <div className="glass-card rounded-xl p-6 shadow-lg border border-[#7C3AED]/20">
-        <div className="flex items-start gap-3 mb-4">
-          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#7C3AED]/20 flex items-center justify-center">
-            <Cookie className="w-5 h-5 text-[#A78BFA]" />
+    <div className="fixed bottom-2 inset-x-2 z-50 md:left-auto md:right-6 md:max-w-md md:inset-x-auto md:bottom-4">
+      <div className="glass-card rounded-xl shadow-lg border border-[#7C3AED]/20 overflow-hidden">
+        {/* Header with info toggle */}
+        <div className="flex items-start gap-3 p-4">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#7C3AED]/20 flex items-center justify-center mt-0.5">
+            <Cookie className="w-4 h-4 text-[#A78BFA]" />
           </div>
-          <div>
-            <h3 className="text-white font-semibold text-lg">
+          <div className="min-w-0 flex-1">
+            <h3 className="text-white font-semibold text-sm">
               🍪 Cookies
             </h3>
-            <p className="text-[#94A3B8] text-sm mt-1">
-              Utilizamos cookies para mejorar tu experiencia. Puedes aceptar todas las cookies o configurarlas según tus preferencias.
+            <p className="text-[#94A3B8] text-xs leading-tight">
+              Usamos cookies para mejorar tu experiencia.
             </p>
+          </div>
+          <button
+            onClick={toggleExpanded}
+            className="flex-shrink-0 p-1.5 text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer"
+            aria-label={isExpanded ? "Ocultar información" : "Más información"}
+          >
+            {isExpanded ? <ChevronDown className="w-4 h-4" /> : <Info className="w-4 h-4" />}
+          </button>
+        </div>
+
+        {/* Expanded content - GDPR information */}
+        <div className={`transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="px-4 pb-4 border-t border-[#7C3AED]/20">
+            <div className="pt-3 space-y-2">
+              <p className="text-[#E2E8F0] text-xs">
+                <strong>¿Qué son las cookies?</strong> Son pequeños archivos que se almacenan en tu dispositivo para mejorar tu experiencia de navegación.
+              </p>
+              <p className="text-[#E2E8F0] text-xs">
+                <strong>Cookies esenciales:</strong> Necesarias para el funcionamiento básico del sitio. No pueden desactivarse.
+              </p>
+              <p className="text-[#E2E8F0] text-xs">
+                <strong>Cookies analíticas:</strong> Nos ayudan a entender cómo usas nuestro sitio para mejorarlo.
+              </p>
+              <p className="text-[#64748B] text-xs">
+               Tienes derecho a acceder, rectificar o eliminar tus datos. Contactanos para ejercer estos derechos.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3">
+        {/* Action buttons */}
+        <div className="flex gap-2 px-4 pb-4">
           <button
             onClick={handleAccept}
-            className="flex-1 px-4 py-2.5 bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] text-white font-medium rounded-lg hover:shadow-neon transition-all duration-200 cursor-pointer text-sm"
+            className="flex-1 px-3 py-2 bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] text-white font-medium rounded-lg hover:shadow-neon transition-all duration-200 cursor-pointer text-xs"
           >
-            Aceptar todo
+            Aceptar
           </button>
           <button
             onClick={handleDecline}
-            className="flex-1 px-4 py-2.5 bg-transparent border border-[#7C3AED]/30 text-[#E2E8F0] font-medium rounded-lg hover:bg-[#7C3AED]/10 transition-all duration-200 cursor-pointer text-sm"
+            className="flex-1 px-3 py-2 bg-transparent border border-[#7C3AED]/30 text-[#E2E8F0] font-medium rounded-lg hover:bg-[#7C3AED]/10 transition-all duration-200 cursor-pointer text-xs"
           >
             Rechazar
           </button>
         </div>
-        
-        <p className="text-xs text-[#64748B] mt-3 text-center">
-          Al hacer clic, aceptas nuestra{" "}
-          <a href="#politica" className="text-[#A78BFA] hover:underline cursor-pointer">
-            Política de Privacidad
-          </a>
-        </p>
       </div>
     </div>
   );
