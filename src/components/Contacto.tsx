@@ -82,8 +82,8 @@ export default function Contacto() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Email</p>
-                  <a href="mailto:hello@kcumen.co" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer">
-                    hello@kcumen.co
+                  <a href="mailto:hola@kcumen.co" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer">
+                    hola@kcumen.co
                   </a>
                 </div>
               </div>
@@ -94,8 +94,8 @@ export default function Contacto() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Teléfono</p>
-                  <a href="tel:+1234567890" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer">
-                    +1 (234) 567-890
+                  <a href="https://wa.me/573226737035" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer">
+                    +57 322 673 7035
                   </a>
                 </div>
               </div>

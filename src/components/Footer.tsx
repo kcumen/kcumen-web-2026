@@ -51,14 +51,14 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-[#94A3B8]">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:hello@kcumen.co" className="hover:text-[#A78BFA] transition-colors cursor-pointer">
-                  hello@kcumen.co
+                <a href="mailto:hola@kcumen.co" className="hover:text-[#A78BFA] transition-colors cursor-pointer">
+                  hola@kcumen.co
                 </a>
               </div>
               <div className="flex items-center gap-3 text-[#94A3B8]">
                 <Phone className="w-5 h-5" />
-                <a href="tel:+1234567890" className="hover:text-[#A78BFA] transition-colors cursor-pointer">
-                  +1 (234) 567-890
+                <a href="https://wa.me/573226737035" target="_blank" rel="noopener noreferrer" className="hover:text-[#A78BFA] transition-colors cursor-pointer">
+                  +57 322 673 7035
                 </a>
               </div>
             </div>

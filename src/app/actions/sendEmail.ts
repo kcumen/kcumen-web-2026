@@ -18,6 +18,7 @@ export async function sendEmail(formData: FormData) {
     const data = await resend.emails.send({
       from: process.env.EMAIL_FROM || "onboarding@resend.dev",
       to: process.env.EMAIL_TO || "hello@kcumen.co",
+      replyTo: email,
       subject: `Nuevo contacto de ${nombre || email}`,
       html: `
         <h1>Nuevo mensaje de contacto</h1>
