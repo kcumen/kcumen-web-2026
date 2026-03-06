@@ -1,5 +1,6 @@
 name = "kcumen-web-2026"
 compatibility_date = "2024-01-01"
+main = ".open-next/worker.js"
 
 [vars]
 RESEND_API_KEY = ""
