@@ -44,7 +44,7 @@ export default function Contacto() {
   };
 
   return (
-    <section id="contacto" className="py-16 md:py-24 relative">
+    <section id="contacto" aria-labelledby="contacto-title" className="py-16 md:py-24 relative">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#7C3AED]/10 rounded-full blur-3xl" />
@@ -54,7 +54,8 @@ export default function Contacto() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 
+          <h2
+            id="contacto-title"
             className="text-3xl md:text-4xl font-bold text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >

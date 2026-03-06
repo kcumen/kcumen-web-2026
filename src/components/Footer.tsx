@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   servicios: [
@@ -31,7 +32,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F0F23] text-white border-t border-[#7C3AED]/20">
+    <footer className="bg-[#0F0F23] text-white border-t border-[#7C3AED]/20" aria-label="Pie de página">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo & Description */}
@@ -120,9 +121,11 @@ export default function Footer() {
         <div className="border-t border-[#7C3AED]/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-3">
-              <img 
-                src="/favicon-kcumen.png" 
-                alt="Kcumen" 
+              <Image
+                src="/favicon-kcumen.png"
+                alt="Logo de Kcumen"
+                width={32}
+                height={32}
                 className="w-8 h-8"
               />
               <span className="text-lg font-bold text-white">Kcumen</span>

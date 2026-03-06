@@ -10,7 +10,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+    <section id="inicio" aria-labelledby="hero-title" className="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#7C3AED]/20 rounded-full blur-3xl" />
@@ -27,7 +27,8 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 
+          <h1
+            id="hero-title"
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             style={{ fontFamily: "var(--font-heading)" }}
           >
@@ -40,7 +41,7 @@ export default function Hero() {
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-[#94A3B8] mb-8 max-w-2xl mx-auto leading-relaxed">
             Transformamos tu visión en realidad digital con tecnología de vanguardia.
-            Potencia con IA el futuro de tu negocio hoy.
+            Desarrollamos software a medida, plataformas web, aplicaciones y soluciones con IA para impulsar el crecimiento de tu negocio.
           </p>
 
           {/* CTAs */}
