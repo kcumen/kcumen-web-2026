@@ -95,8 +95,11 @@ export default function Contacto() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Teléfono</p>
-                  <a href="https://wa.me/573226737035" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer">
+                  <a href="https://wa.me/573226737035" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer block">
                     +57 322 673 7035
+                  </a>
+                  <a href="https://wa.me/34644096997" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer block">
+                    +34 644 09 69 97
                   </a>
                 </div>
               </div>

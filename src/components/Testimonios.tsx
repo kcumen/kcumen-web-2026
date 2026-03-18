@@ -7,7 +7,7 @@ const testimonios = [
     nombre: "Margarita Santos",
     cargo: "Coordinadora, FAO Regional",
     empresa: "FAO Colombia",
-    texto: "Kcumen transformó nuestra visión en una plataforma que superó nuestras expectativas. Tiene un gran equipo, muy profesional y con un conocimiento técnico excepcional.",
+    texto: "Kcumen transformó nuestra visión en una plataforma que superó nuestras expectativas. Cuentan con un gran equipo, muy profesional y con un conocimiento técnico excepcional.",
   },
   {
     nombre: "César Echeverry",

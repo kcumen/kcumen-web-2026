@@ -62,6 +62,12 @@ export default function Footer() {
                   +57 322 673 7035
                 </a>
               </div>
+              <div className="flex items-center gap-3 text-[#94A3B8]">
+                <Phone className="w-5 h-5" />
+                <a href="https://wa.me/34644096997" target="_blank" rel="noopener noreferrer" className="hover:text-[#A78BFA] transition-colors cursor-pointer">
+                  +34 644 09 69 97
+                </a>
+              </div>
             </div>
           </div>
 
