@@ -1,7 +1,6 @@
 "use server";
 
 import { Resend } from "resend";
-import { render } from "@react-email/render";
 import { ContactEmail } from "@/emails/ContactEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -17,17 +16,18 @@ export async function sendEmail(formData: FormData) {
   }
 
   try {
-    const emailHtml = await render(
-      ContactEmail({ nombre, email, empresa, mensaje })
-    );
-
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: process.env.EMAIL_FROM || "onboarding@resend.dev",
       to: process.env.EMAIL_TO || "hello@kcumen.co",
       replyTo: email,
       subject: `Nuevo contacto de ${nombre || email}`,
-      html: emailHtml,
+      react: ContactEmail({ nombre, email, empresa, mensaje }),
     });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return { success: false, error: error.message };
+    }
 
     return { success: true, data };
   } catch (error) {
