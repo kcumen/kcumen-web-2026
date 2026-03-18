@@ -18,6 +18,7 @@ interface ContactEmailProps {
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://kcumen.co";
+const currentYear = new Date().getFullYear();
 
 export const ContactEmail = ({
   nombre,
@@ -307,7 +308,7 @@ export const ContactEmail = ({
                 marginBottom: "16px",
               }}
             >
-              © 2026{" "}
+              © {currentYear}{" "}
               <Link
                 href="https://kcumen.co"
                 style={{ color: "#067df7", fontWeight: "bold" }}
