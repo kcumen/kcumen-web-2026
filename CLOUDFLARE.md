@@ -49,13 +49,35 @@ This project is deployed as a **Cloudflare Worker** using **OpenNext**, not as a
 
 ## Resend compatibility
 
-The contact form can continue using Resend through the existing server action.
+The contact form uses Resend through the existing server action.
 
-Requirements:
+### ⚠️ Critical: Use `html:` not `react:` in Cloudflare Workers
+
+Resend's `react:` property internally calls `@react-email/render` using Node.js SSR APIs that are **not available** in Cloudflare Workers Edge runtime. This causes silent failures or errors in production even though it works locally (Node.js).
+
+**Fix applied in `src/app/actions/sendEmail.ts`:** Pre-render the React email component to HTML using `@react-email/render` and pass `html:` to Resend instead:
+
+```ts
+import { render } from "@react-email/render";
+
+const emailHtml = await render(ContactEmail({ ... }));
+
+await resend.emails.send({
+  html: emailHtml,  // ✅ Works in Cloudflare Workers
+  // react: ContactEmail({ ... }),  // ❌ Fails in Cloudflare Workers
+});
+```
+
+See: https://resend.com/docs/send-with-cloudflare-workers
+
+### Requirements
 
 - Keep `nodejs_compat` enabled in `wrangler.toml`
-- Set `RESEND_API_KEY` in Cloudflare
-- Keep `EMAIL_FROM` and `EMAIL_TO` configured
+- Set `RESEND_API_KEY` as a **Cloudflare Worker secret** (not just in `[vars]`):
+  ```bash
+  npx wrangler secret put RESEND_API_KEY
+  ```
+- `EMAIL_FROM` and `EMAIL_TO` are set in `wrangler.toml` `[vars]` (non-sensitive)
 
 ## Troubleshooting
 
