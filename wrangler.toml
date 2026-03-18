@@ -8,6 +8,5 @@ directory = ".open-next/assets"
 binding = "ASSETS"
 
 [vars]
-RESEND_API_KEY = "re_dDahCadx_75mroVrMirt2zD9ukvMjqtBR"
 EMAIL_FROM = "contacto@kcumen.co"
 EMAIL_TO = "hola@kcumen.co"
