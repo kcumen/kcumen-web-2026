@@ -1,8 +1,19 @@
 "use client";
 
-import { Mail, Phone, MapPin, Send, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, Send, Sparkles } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
 import { sendEmail } from "@/app/actions/sendEmail";
+
+// Extend Window to include Turnstile
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: string | HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -13,9 +24,47 @@ export default function Contacto() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const turnstileTokenRef = useRef<string>("");
+
+  // Called by Turnstile when the challenge is solved
+  const onTurnstileSuccess = useCallback((token: string) => {
+    turnstileTokenRef.current = token;
+  }, []);
+
+  // Render the Turnstile widget once the container div is mounted
+  const turnstileContainerRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (!node) return;
+      turnstileRef.current = node;
+      // Wait for the Turnstile script to be available
+      const tryRender = () => {
+        if (window.turnstile) {
+          widgetIdRef.current = window.turnstile.render(node, {
+            sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA",
+            callback: onTurnstileSuccess,
+            theme: "dark",
+          });
+        } else {
+          setTimeout(tryRender, 100);
+        }
+      };
+      tryRender();
+    },
+    [onTurnstileSuccess]
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const token = turnstileTokenRef.current;
+    if (!token) {
+      setStatus("error");
+      setErrorMessage("Por favor completa la verificación de seguridad");
+      return;
+    }
+
     setStatus("loading");
     setErrorMessage("");
 
@@ -24,15 +73,26 @@ export default function Contacto() {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("empresa", formData.empresa);
     formDataToSend.append("mensaje", formData.mensaje);
+    formDataToSend.append("turnstileToken", token);
 
     const result = await sendEmail(formDataToSend);
 
     if (result.success) {
       setStatus("success");
       setFormData({ nombre: "", email: "", empresa: "", mensaje: "" });
+      turnstileTokenRef.current = "";
+      // Reset the widget so it can be used again
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.reset(widgetIdRef.current);
+      }
     } else {
       setStatus("error");
       setErrorMessage(result.error || "Error al enviar el mensaje");
+      // Reset widget on error so user can retry
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.reset(widgetIdRef.current);
+        turnstileTokenRef.current = "";
+      }
     }
   };
 
@@ -192,6 +252,9 @@ export default function Contacto() {
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
+
+              {/* Cloudflare Turnstile widget */}
+              <div ref={turnstileContainerRef} className="flex justify-center" />
 
               <button
                 type="submit"

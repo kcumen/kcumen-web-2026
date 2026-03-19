@@ -13,11 +13,19 @@ Configure these secrets in your GitHub repository settings (`Settings` > `Secret
 
 Set these as Worker environment variables / secrets in Cloudflare:
 
-| Variable         | Value                                        |
-| ---------------- | -------------------------------------------- |
-| `RESEND_API_KEY` | Your Resend API key                          |
-| `EMAIL_FROM`     | Sender email (e.g., `onboarding@resend.dev`) |
-| `EMAIL_TO`       | Recipient email (e.g., `hello@kcumen.co`)    |
+| Variable                        | Type     | Value                                                    |
+| ------------------------------- | -------- | -------------------------------------------------------- |
+| `RESEND_API_KEY`                | Secret   | Your Resend API key                                      |
+| `TURNSTILE_SECRET_KEY`          | Secret   | Cloudflare Turnstile secret key (from Turnstile dashboard) |
+| `EMAIL_FROM`                    | Var      | Sender email — already in `wrangler.toml [vars]`         |
+| `EMAIL_TO`                      | Var      | Recipient email — already in `wrangler.toml [vars]`      |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY`| Var      | Turnstile site key — set in `wrangler.toml [vars]`       |
+
+Set secrets via CLI:
+```bash
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put TURNSTILE_SECRET_KEY
+```
 
 ## Deployment Strategy
 
@@ -78,6 +86,35 @@ See: https://resend.com/docs/send-with-cloudflare-workers
   npx wrangler secret put RESEND_API_KEY
   ```
 - `EMAIL_FROM` and `EMAIL_TO` are set in `wrangler.toml` `[vars]` (non-sensitive)
+
+## Cloudflare Turnstile (CAPTCHA)
+
+The contact form is protected with [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) — a free, frictionless CAPTCHA alternative.
+
+### Setup steps
+
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) > **Turnstile** > **Add site**
+2. Choose widget type: **Managed** (recommended — invisible for real users)
+3. Add your domain: `kcumen.co`
+4. Copy the **Site Key** and **Secret Key**
+
+5. Update `wrangler.toml` `[vars]` with the real site key:
+   ```toml
+   NEXT_PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAAA..."
+   ```
+
+6. Set the secret key as a Worker secret:
+   ```bash
+   npx wrangler secret put TURNSTILE_SECRET_KEY
+   ```
+
+### Local development
+
+`.dev.vars` uses Cloudflare's official test keys that always pass verification:
+- Site key: `1x00000000000000000000AA`
+- Secret key: `1x0000000000000000000000000000000AA`
+
+See: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
 
 ## Troubleshooting
 

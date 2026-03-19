@@ -5,6 +5,34 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 /**
+ * Verify a Cloudflare Turnstile token server-side.
+ * Returns true if the token is valid.
+ */
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) {
+    // If no secret is configured (e.g. local dev without .dev.vars), skip verification
+    console.warn("TURNSTILE_SECRET_KEY not set — skipping Turnstile verification");
+    return true;
+  }
+
+  const formData = new FormData();
+  formData.append("secret", secret);
+  formData.append("response", token);
+
+  try {
+    const res = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      { method: "POST", body: formData }
+    );
+    const data = (await res.json()) as { success: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Build a plain HTML email string without any React/Node.js SSR dependencies.
  *
  * Cloudflare Workers Edge runtime does NOT support:
@@ -108,9 +136,16 @@ export async function sendEmail(formData: FormData) {
   const email = formData.get("email") as string;
   const empresa = formData.get("empresa") as string;
   const mensaje = formData.get("mensaje") as string;
+  const turnstileToken = formData.get("turnstileToken") as string;
 
   if (!email || !mensaje) {
     return { success: false, error: "Email y mensaje son requeridos" };
+  }
+
+  // Verify Turnstile token before sending the email
+  const turnstileValid = await verifyTurnstile(turnstileToken || "");
+  if (!turnstileValid) {
+    return { success: false, error: "Verificación de seguridad fallida. Por favor, inténtalo de nuevo." };
   }
 
   try {
