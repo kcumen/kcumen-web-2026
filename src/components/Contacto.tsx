@@ -42,7 +42,7 @@ export default function Contacto() {
       const tryRender = () => {
         if (window.turnstile) {
           widgetIdRef.current = window.turnstile.render(node, {
-            sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA",
+            sitekey: "0x4AAAAAACs6a5amW1Kz9Ze-",
             callback: onTurnstileSuccess,
             theme: "dark",
           });
