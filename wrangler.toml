@@ -4,7 +4,6 @@ compatibility_flags = ["nodejs_compat"]
 main = ".open-next/worker.js"
 
 [limits]
-cpu_ms = 10
 memory_mb = 64
 
 routes = [
