@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram, Rocket } from "lucide-react";
 import Image from "next/image";
 
 const footerLinks = {
@@ -15,6 +15,7 @@ const footerLinks = {
     { name: "Carreras", href: "#" },
     { name: "Blog", href: "#" },
     { name: "Contacto", href: "#contacto" },
+    { name: "Aliados comerciales", href: "https://ventas.kcumen.co", external: true },
   ],
   legal: [
     { name: "Política de Privacidad", href: "#" },
@@ -96,9 +97,16 @@ export default function Footer() {
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-[#94A3B8] hover:text-[#A78BFA] transition-colors cursor-pointer"
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className={`transition-colors cursor-pointer inline-flex items-center gap-1 align-baseline ${
+                      link.external 
+                        ? "text-[#A78BFA] hover:text-white" 
+                        : "text-[#94A3B8] hover:text-[#A78BFA]"
+                    }`}
                   >
                     {link.name}
+                    {link.external && <Rocket className="w-4 h-4" />}
                   </a>
                 </li>
               ))}
