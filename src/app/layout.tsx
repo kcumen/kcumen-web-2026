@@ -40,6 +40,12 @@ export const metadata: Metadata = {
       "Creamos plataformas digitales, productos tecnológicos y soluciones con IA para impulsar el crecimiento de empresas e instituciones.",
     images: [
       {
+        url: "/kcumen_og.png",
+        width: 1200,
+        height: 630,
+        alt: "Kcumen - Desarrollo web, software e inteligencia artificial",
+      },
+      {
         url: "/kcumen_social.png",
         width: 1200,
         height: 630,
@@ -52,7 +58,7 @@ export const metadata: Metadata = {
     title: "Kcumen | Desarrollo web, software a medida e inteligencia artificial",
     description:
       "Plataformas digitales, software a medida, apps y soluciones con IA para acelerar la transformación digital.",
-    images: ["/kcumen_social.png"],
+    images: ["/kcumen_og.png", "/kcumen_social.png"],
   },
   robots: {
     index: true,
